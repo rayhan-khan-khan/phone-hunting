@@ -9,10 +9,19 @@ const displayPhones = (phones) => {
   // main div
   const mainContainer = document.getElementById("div-container");
   mainContainer.textContent = '';
+  const divContainer = document.getElementById('show-all-data');
+  if (phones.length > 12) {
+    divContainer.classList.remove('hidden')
+  }else{
+    divContainer.classList.add('hidden')
+  }
+//display only first 12 phones
+  phones = phones.slice(0,12)
+
   phones.forEach((element) => {
-    console.log(element);
+    // console.log(element);
     const phoneDiv = document.createElement("div");
-    phoneDiv.classList = "card w-80 md:w-80 lg:w-96 border-2 hover:border-purple-600 mx-auto bg-base-100 shadow-xl";
+    phoneDiv.classList = "card w-80 mb-4 md:w-80 lg:w-96 border-2 hover:shadow-purple-800 mx-auto bg-base-100 shadow-xl";
     phoneDiv.innerHTML = `
     <figure><img class="md:p-10 p-5" src="${element.image}" alt="Shoes" /></figure>
     <div class="card-body">
@@ -27,13 +36,31 @@ const displayPhones = (phones) => {
 
     mainContainer.appendChild(phoneDiv)
   });
+  toggleLoadingSpinner(false)
 };
 
 
 const handleSearch = ()=>{
+    toggleLoadingSpinner(true)
     const inputField = document.getElementById('search-field');
     const input = inputField.value;
     loadPhone(input)
+}
+
+// const handleSearch2 = () =>{
+//     toggleLoadingSpinner(true)
+//     const inputElement = document.getElementById('search-field2');
+//     const inputValue = inputElement.value;
+//     loadPhone(inputValue);
+// }
+
+const toggleLoadingSpinner = (isLoadign) =>{
+    const loadingSpinner = document.getElementById('loading-spinner');
+    if (isLoadign) {
+        loadingSpinner.classList.remove('hidden') 
+    }else{
+        loadingSpinner.classList.add('hidden')
+    }
 }
 
 loadPhone();
