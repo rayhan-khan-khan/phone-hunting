@@ -21,7 +21,7 @@ const displayPhones = (phones) => {
   phones.forEach((element) => {
     // console.log(element);
     const phoneDiv = document.createElement("div");
-    phoneDiv.classList = "card w-80 mb-4 md:w-80 lg:w-96 border-2 hover:shadow-purple-800 mx-auto bg-base-100 shadow-xl";
+    phoneDiv.classList = "card w-80 mb-4 md:w-80 lg:w-96 border-2 hover:shadow-purple-600 mx-auto bg-base-100 shadow-xl";
     phoneDiv.innerHTML = `
     <figure><img class="md:p-10 p-5" src="${element.image}" alt="Shoes" /></figure>
     <div class="card-body">
