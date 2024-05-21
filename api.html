@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API PHONE</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="tailwind.config.js" />
+  </head>
+  <body>
+    <header class="container mx-auto">
+      <h1 class="text-2xl font-semibold text-green-600">
+        Welcome to api phone
+      </h1>
+    </header>
+    <main class="container mx-auto px-2 mb-10">
+      <!-- search phone result -->
+      <section class="my-8">
+        <div>
+          <input
+            id="input-field"
+            type="text"
+            placeholder="Type here"
+            class="input input-bordered input-info w-full max-w-xs"
+          />
+          <button onclick="searchPhoneName()" class="btn btn-outline btn-info">
+            Search
+          </button>
+        </div>
+      </section>
+
+      <!-- data load -->
+      <section>
+        <!-- loading spinner -->
+        <div>
+          <span
+            id="load-spinner"
+            class="loading loading-spinner text-primary"
+          ></span>
+        </div>
+        <div
+          id="main-container"
+          class="grid gap-3 grid-cols-1 md:grid-cols-3 lg:grid-cols-4"
+        ></div>
+        <div id="show-all" class="hidden my-5 text-center">
+          <button
+            onclick="showAllDetails()"
+            class="btn btn-outline btn-info uppercase"
+          >
+            Show all
+          </button>
+        </div>
+
+        <!-- modal div -->
+        <!-- Open the modal using ID.showModal() method -->
+        <!-- <button class="btn" onclick="my_modal.showModal()">open modal</button> -->
+        <dialog id="my_modal" class="modal modal-bottom sm:modal-middle">
+          <div class="modal-box">
+           
+            <h3 class="font-bold text-lg">Hello!</h3>
+            <p class="py-4">Press ESC key or click the button below to close</p>
+            <div class="modal-action">
+              <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+      </section>
+    </main>
+    <script src="js/api.js"></script>
+  </body>
+</html>
